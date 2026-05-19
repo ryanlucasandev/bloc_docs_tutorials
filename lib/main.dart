@@ -1,7 +1,8 @@
+import 'package:bloc_docs_tutorials/bloc_tutorials/flutter_timer/app.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const FlutterTimer());
 }
 
 class MyApp extends StatelessWidget {
