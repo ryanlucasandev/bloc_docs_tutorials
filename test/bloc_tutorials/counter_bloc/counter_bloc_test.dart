@@ -22,7 +22,7 @@ void main() {
     );
 
     blocTest(
-      'emits [1] when CounterDecrementPressed is added',
+      'emits [-1] when CounterDecrementPressed is added',
       build: () => counterBloc,
       act: (bloc) => bloc.add(CounterDecrementPressed()),
       expect: () => [-1],

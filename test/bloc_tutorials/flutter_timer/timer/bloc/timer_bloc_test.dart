@@ -22,7 +22,7 @@ void main() {
     });
 
     blocTest<TimerBloc, TimerState>(
-      'emites TickerRunInProgress 5 times after timer started',
+      'emits TickerRunInProgress 5 times after timer started',
       build: () => TimerBloc(ticker: ticker),
       act: (bloc) => bloc.add(const TimerStarted(duration: 5)),
       expect: () => [
