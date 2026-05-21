@@ -1,8 +1,11 @@
-import 'package:bloc_docs_tutorials/bloc_tutorials/flutter_timer/app.dart';
+import 'package:bloc/bloc.dart';
+import 'package:bloc_docs_tutorials/bloc_tutorials/flutter_infinite_list/app.dart';
+import 'package:bloc_docs_tutorials/bloc_tutorials/flutter_infinite_list/simple_bloc_observer.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const FlutterTimer());
+  Bloc.observer = const SimpleBlocObserver();
+  runApp(const InfiniteListApp());
 }
 
 class MyApp extends StatelessWidget {
