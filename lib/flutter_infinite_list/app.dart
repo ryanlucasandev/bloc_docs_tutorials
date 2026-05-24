@@ -3,4 +3,8 @@ import 'package:flutter/material.dart';
 
 class InfiniteListApp extends MaterialApp {
   const InfiniteListApp({super.key}) : super(home: const PostsPage());
+
+  static Route<void> route() {
+    return MaterialPageRoute<void>(builder: (_) => const PostsPage());
+  }
 }

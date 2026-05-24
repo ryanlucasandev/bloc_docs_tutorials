@@ -1,3 +1,4 @@
+import 'package:bloc_docs_tutorials/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc_docs_tutorials/flutter_login/authentication/authentication.dart';
@@ -11,7 +12,17 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Flutter Login'),
+        leading: BackButton(
+          onPressed: () {
+            Navigator.of(
+              context,
+            ).pushAndRemoveUntil<void>(MyHomePage.route(), (route) => false);
+          },
+        ),
+      ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,

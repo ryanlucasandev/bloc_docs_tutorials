@@ -9,6 +9,14 @@ class CounterView extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Counter App'),
+        leading: BackButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+      ),
       body: Center(
         child: BlocBuilder<CounterCubit, int>(
           builder: (context, state) {
@@ -21,11 +29,13 @@ class CounterView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           FloatingActionButton(
+            heroTag: 'increment',
             key: const Key('counterView_increment_floatingActionButton'),
             child: const Icon(Icons.add),
             onPressed: () => context.read<CounterCubit>().increment(),
           ),
           FloatingActionButton(
+            heroTag: 'decrement',
             key: const Key('counterView_decrement_floatingActionButton'),
             child: const Icon(Icons.remove),
             onPressed: () => context.read<CounterCubit>().decrement(),

@@ -11,6 +11,10 @@ import 'package:user_repository/user_repository.dart';
 class FlutterLogin extends StatelessWidget {
   const FlutterLogin({super.key});
 
+  static Route<void> route() {
+    return MaterialPageRoute<void>(builder: (_) => const FlutterLogin());
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
