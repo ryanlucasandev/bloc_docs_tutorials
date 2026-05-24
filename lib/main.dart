@@ -1,11 +1,12 @@
 import 'package:bloc/bloc.dart';
-import 'package:bloc_docs_tutorials/bloc_tutorials/flutter_infinite_list/app.dart';
-import 'package:bloc_docs_tutorials/bloc_tutorials/flutter_infinite_list/simple_bloc_observer.dart';
+import 'package:bloc_docs_tutorials/flutter_infinite_list/app.dart';
+import 'package:bloc_docs_tutorials/flutter_infinite_list/simple_bloc_observer.dart';
+import 'package:bloc_docs_tutorials/flutter_login/app.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   Bloc.observer = const SimpleBlocObserver();
-  runApp(const InfiniteListApp());
+  runApp(const FlutterLogin());
 }
 
 class MyApp extends StatelessWidget {

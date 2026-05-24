@@ -28,6 +28,10 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  authentication_repository:
+    path: packages/authentication_repository
+  user_repository:
+    path: packages/user_repository
   flutter:
     sdk: flutter
 
@@ -40,6 +44,7 @@ dependencies:
   equatable:
   bloc_concurrency: ^0.3.0
   stream_transform: ^2.0.0
+  formz: ^0.8.0
 
 dev_dependencies:
   flutter_test:
