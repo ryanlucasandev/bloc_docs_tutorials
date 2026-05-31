@@ -1,6 +1,7 @@
 import 'package:authentication_repository/authentication_respository.dart';
 import 'package:bloc_docs_tutorials/flutter_login/login/bloc/login_bloc.dart';
 import 'package:bloc_docs_tutorials/flutter_login/login/view/login_form.dart';
+import 'package:bloc_docs_tutorials/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,6 +15,16 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Login'),
+        leading: BackButton(
+          onPressed: () {
+            Navigator.of(
+              context,
+            ).pushAndRemoveUntil<void>(MyHomePage.route(), (route) => false);
+          },
+        ),
+      ),
       body: Padding(
         padding: EdgeInsets.all(12),
         child: BlocProvider(

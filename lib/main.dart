@@ -1,13 +1,22 @@
-import 'package:bloc/bloc.dart';
 import 'package:bloc_docs_tutorials/flutter_counter/app.dart';
 import 'package:bloc_docs_tutorials/flutter_infinite_list/app.dart';
 import 'package:bloc_docs_tutorials/flutter_infinite_list/simple_bloc_observer.dart';
 import 'package:bloc_docs_tutorials/flutter_login/app.dart';
 import 'package:bloc_docs_tutorials/flutter_timer/app.dart';
+import 'package:bloc_docs_tutorials/flutter_weather/app.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = const SimpleBlocObserver();
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory: kIsWeb
+        ? HydratedStorageDirectory.web
+        : HydratedStorageDirectory((await getTemporaryDirectory()).path),
+  );
   runApp(const MyApp());
 }
 
@@ -51,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
             TimerRouteButton(),
             InfiniteListRouteButton(),
             LoginRouteButton(),
+            WeatherRouteButton(),
           ],
         ),
       ),
@@ -110,6 +120,20 @@ class LoginRouteButton extends StatelessWidget {
         Navigator.of(context).push(FlutterLogin.route());
       },
       child: Text('Flutter Login'),
+    );
+  }
+}
+
+class WeatherRouteButton extends StatelessWidget {
+  const WeatherRouteButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        Navigator.of(context).push<void>(WeatherApp.route());
+      },
+      child: Text('Flutter Weather'),
     );
   }
 }
